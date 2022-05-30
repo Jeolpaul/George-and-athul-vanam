@@ -27,6 +27,32 @@ async def start_message(bot, message):
             )
         )
 
+@Client.on_message(filters.command("ikka") &
+    f_onw_fliter
+)
+async def ikka(bot, message):
+    """ /ikka strings """
+    effective_string = random.choice(IKKA_STRINGS)
+    if message.reply_to_message:
+        await message.reply_to_message.reply_sticker(effective_string)
+    else:
+        await message.reply_sticker(effective_string)
+
+
+@Client.on_message(filters.command("george") &
+    f_onw_fliter
+)
+async def ikka(bot, message):
+    """ /george strings """
+    effective_string = random.choice(GEORGE_STRINGS)
+    if message.reply_to_message:
+        await message.reply_to_message.reply_sticker(effective_string)
+    else:
+        await message.reply_sticker(effective_string)
+
+
+
+
 @Jeol.on_message(filters.command("help"))
 async def help_message(bot, message):
     await message.reply_photo(
